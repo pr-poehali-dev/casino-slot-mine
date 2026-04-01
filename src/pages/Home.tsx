@@ -114,8 +114,7 @@ export default function Home() {
         <section className="max-w-4xl mx-auto px-4 pb-16">
           <div className="bg-gradient-to-r from-yellow-500/10 to-orange-500/10 border border-yellow-500/30 rounded-2xl p-8 text-center">
             <div className="text-4xl mb-4">🎁</div>
-            <h3 className="text-2xl font-black text-white mb-2">Промокоды и бонусы!</h3>
-            <p className="text-gray-400 mb-6">Зарегистрируйся и используй промокоды для получения бонусных монет</p>
+
             <Link
               to="/register"
               className="bg-yellow-500 text-black font-bold px-8 py-3 rounded-xl hover:bg-yellow-400 transition-all inline-block"
