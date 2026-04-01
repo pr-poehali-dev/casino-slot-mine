@@ -38,9 +38,6 @@ export default function Home() {
             <span className="text-yellow-400">CASINO</span>
           </h1>
 
-          <p className="text-gray-400 text-lg md:text-xl mb-10 max-w-2xl mx-auto">
-            Слоты, Минёр, Краш — выигрывай и зарабатывай!
-          </p>
 
           <div className="flex flex-wrap justify-center gap-4">
             {user ? (
