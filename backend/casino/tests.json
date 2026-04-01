@@ -1,0 +1,19 @@
+[
+  {
+    "method": "POST",
+    "path": "/register",
+    "body": {"username": "testuser", "email": "test@test.com", "password": "test123"},
+    "expectedStatus": 200
+  },
+  {
+    "method": "POST",
+    "path": "/login",
+    "body": {"login": "testuser", "password": "test123"},
+    "expectedStatus": 200
+  },
+  {
+    "method": "GET",
+    "path": "/profile?user_id=KC000000",
+    "expectedStatus": 404
+  }
+]
