@@ -39,7 +39,7 @@ export default function Home() {
           </h1>
 
           <p className="text-gray-400 text-lg md:text-xl mb-10 max-w-2xl mx-auto">
-            Лучшее казино на Казах Коинах. Слоты, Минёр, Краш — выигрывай и зарабатывай!
+            Слоты, Минёр, Краш — выигрывай и зарабатывай!
           </p>
 
           <div className="flex flex-wrap justify-center gap-4">
