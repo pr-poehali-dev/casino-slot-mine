@@ -1,19 +1,21 @@
-[
-  {
-    "method": "POST",
-    "path": "/register",
-    "body": {"username": "testuser", "email": "test@test.com", "password": "test123"},
-    "expectedStatus": 200
-  },
-  {
-    "method": "POST",
-    "path": "/login",
-    "body": {"login": "testuser", "password": "test123"},
-    "expectedStatus": 200
-  },
-  {
-    "method": "GET",
-    "path": "/profile?user_id=KC000000",
-    "expectedStatus": 404
-  }
-]
+{
+  "tests": [
+    {
+      "method": "POST",
+      "path": "/register",
+      "body": {"username": "testuser123", "email": "testuser123@test.com", "password": "test123"},
+      "expectedStatus": 200
+    },
+    {
+      "method": "POST",
+      "path": "/login",
+      "body": {"login": "testuser123", "password": "test123"},
+      "expectedStatus": 200
+    },
+    {
+      "method": "GET",
+      "path": "/profile?user_id=KC000000",
+      "expectedStatus": 404
+    }
+  ]
+}

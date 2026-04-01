@@ -5,6 +5,7 @@ import string
 import os
 import psycopg
 from datetime import datetime
+# v3
 
 DB_URL = os.environ.get("DATABASE_URL", "")
 SCHEMA = "t_p78644969_casino_slot_mine"
@@ -51,18 +52,26 @@ def response(status: int, body: dict):
 
 
 def handler(event, context):
-    method = event.get("httpMethod", "GET")
+    # Support different event formats
+    method = event.get("httpMethod") or event.get("method", "GET")
     path = event.get("path", "/")
     body = {}
 
     if method == "OPTIONS":
         return response(200, {})
 
-    if event.get("body"):
+    raw_body = event.get("body")
+    if raw_body:
         try:
-            body = json.loads(event["body"])
+            if isinstance(raw_body, dict):
+                body = raw_body
+            else:
+                body = json.loads(raw_body)
         except Exception:
             pass
+
+    if not DB_URL:
+        return response(500, {"error": "DATABASE_URL не настроен"})
 
     try:
         with get_conn() as conn:

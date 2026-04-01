@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from "react";
 
-const API_URL = "https://functions.poehali.dev/d064e8c8-7fd9-44f4-94c4-3037f6718ed3";
+const API_URL = "https://functions.poehali.dev/d4eifi3a4d1acnkj1q7t";
 
 export interface User {
   user_id: string;
@@ -50,9 +50,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       setToken(data.token);
       localStorage.setItem("kc_user", JSON.stringify(data.user));
       localStorage.setItem("kc_token", data.token);
-    } finally {
+    } catch (err: unknown) {
       setIsLoading(false);
+      if (err instanceof Error) throw err;
+      throw new Error("Ошибка сети при регистрации");
     }
+    setIsLoading(false);
   };
 
   const login = async (loginVal: string, password: string) => {
@@ -69,9 +72,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       setToken(data.token);
       localStorage.setItem("kc_user", JSON.stringify(data.user));
       localStorage.setItem("kc_token", data.token);
-    } finally {
+    } catch (err: unknown) {
       setIsLoading(false);
+      if (err instanceof Error) throw err;
+      throw new Error("Ошибка сети при входе");
     }
+    setIsLoading(false);
   };
 
   const logout = () => {
